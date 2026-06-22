@@ -23,9 +23,7 @@ PANE="$SESSION:0.3"
 if tmux has-session -t "$SESSION" 2>/dev/null; then
     tmux send-keys -t "$PANE" C-c
     sleep 1
-    tmux send-keys -t "$PANE" "cd /home/pablinux/apps/app_facefusion && bash init.sh" Enter
-    sleep 2
-    tmux send-keys -t "$PANE" "1" Enter
+    tmux send-keys -t "$PANE" "cd /home/pablinux/apps/app_facefusion && bash init.sh correr" Enter
     echo "FaceFusion reiniciado en pane $PANE"
 else
     echo "Sesion tmux '$SESSION' no activa — arranca con: bash /home/pablinux/init.sh"
