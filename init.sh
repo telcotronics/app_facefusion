@@ -29,11 +29,11 @@ echo "Iniciando servicios de TMUX"
 tmux new -d -s "$SESSION" -n main
 
 echo "Iniciando servicios de ComfyUI"
-tmux send -t "$SESSION:0.0" "bash /root/apps/confyui/init.sh" Enter
+tmux send -t "$SESSION:0.0" "bash /home/pablinux/apps/confyui/init.sh" Enter
 tmux split -v -t "$SESSION:0.0"
 
 echo "Iniciando servicios de API-SERVICE"
-tmux send -t "$SESSION:0.1" "cd /root/apps/API_Service_IA/" Enter
+tmux send -t "$SESSION:0.1" "cd /home/pablinux/apps/API_Service_IA/" Enter
 tmux send -t "$SESSION:0.1" "bash init.sh" Enter
 sleep 5
 tmux send-keys -t "$SESSION:0.1" "2" Enter
@@ -41,12 +41,12 @@ tmux split -h -t "$SESSION:0.1"
 
 echo "Iniciando servicios de OLLAMA"
 sleep 10
-tmux send -t "$SESSION:0.2" "cd /root/apps/vllm/" Enter
+tmux send -t "$SESSION:0.2" "cd /home/pablinux/apps/vllm/" Enter
 tmux send -t "$SESSION:0.2" "bash init.sh" Enter
 tmux split -h -t "$SESSION:0.0"
 
 echo "Iniciando servicios de FaceFusion"
-tmux send -t "$SESSION:0.3" "cd /root/apps/app_facefusion/" Enter
+tmux send -t "$SESSION:0.3" "cd /home/pablinux/apps/app_facefusion/" Enter
 tmux send -t "$SESSION:0.3" "python facefusion.py run" Enter
 
 tmux select-layout -t "$SESSION:0" tiled

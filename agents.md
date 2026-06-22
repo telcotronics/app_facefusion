@@ -81,7 +81,7 @@ Interfaz web local en español (translator.py modificado). Layouts: `default`, `
 | Parámetro | Valor |
 |---|---|
 | Repo GitHub | `https://github.com/Pablinux/app_facefusion` (público) |
-| Carpeta en servidor | `/root/apps/app_facefusion` |
+| Carpeta en servidor | `/home/pablinux/apps/app_facefusion` |
 | Servidor producción | `APPS-SERVICE-IA` — `192.168.10.154` |
 | Puerto local (dev) | 7860 (Gradio) |
 | Puerto producción | [COMPLETAR] |
