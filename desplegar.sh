@@ -1,12 +1,13 @@
 #!/bin/bash
 SERVIDOR="pablinux@192.168.10.154"
+SSH_KEY="$HOME/.ssh/siax-amd"
 RUTA_REMOTA="/home/pablinux/apps/app_facefusion"
 RUTA_LOCAL=$(dirname "$(realpath "$0")")
 
 echo "=== Desplegando FaceFusion en $SERVIDOR ==="
 
 echo "[1/2] Sincronizando archivos..."
-rsync -avz --progress \
+rsync -avz --progress -e "ssh -i $SSH_KEY" \
   --exclude='.git/' \
   --exclude='__pycache__/' \
   --exclude='*.pyc' \
@@ -16,7 +17,7 @@ rsync -avz --progress \
   "$RUTA_LOCAL/" "$SERVIDOR:$RUTA_REMOTA/"
 
 echo "[2/2] Reiniciando FaceFusion en tmux..."
-ssh "$SERVIDOR" bash << 'EOF'
+ssh -i "$SSH_KEY" "$SERVIDOR" bash << 'EOF'
 SESSION="ia-services"
 PANE="$SESSION:0.3"
 
