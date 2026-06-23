@@ -12,7 +12,7 @@ read -p "Opcion: " op
 case "$op" in
     1)
         source "$VENV/bin/activate"
-        python "$RUTA/facefusion.py" run
+        python "$RUTA/facefusion.py" run --server-name 0.0.0.0
         ;;
     2)
         python3 -m venv "$VENV"
